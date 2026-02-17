@@ -1,0 +1,35 @@
+# requirements.txt
+
+# !!!!!
+# For PyTorch with CUDA 12.1 (Windows 11 1080Ti, for example) support. 
+# Need to do this first, separately, unfortunately
+# pip install torch==2.9.1+cu126 torchvision==0.24.1+cu126 torchaudio==2.9.1+cu126 --index-url https://download.pytorch.org/whl/cu126
+# !!!!!
+
+# On the mac could not get ASR running without
+# export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH" in the .zshrc
+# then ~/.zshrc
+
+# --- Core ML & Hugging Face Libraries ---
+# For model loading, pipelines, and hardware acceleration
+accelerate
+bitsandbytes
+huggingface_hub
+safetensors
+tokenizers
+
+# For audio file processing by the ASR pipeline
+soundfile
+
+# Development version of transformers is required for some custom models
+# This version seems to work for the LLM and the ASR
+transformers @ git+https://github.com/huggingface/transformers.git@65dc261512cbdb1ee72b88ae5b222f2605aad8e5
+librosa
+
+# --- UI Framework ---
+gradio
+json5
+
+# --- Utilities ---
+# For loading .env files in local development
+python-dotenv

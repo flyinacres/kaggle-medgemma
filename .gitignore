@@ -1,0 +1,45 @@
+__pycache__/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+*.venv
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg
+MANIFEST
+.gradio/
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+.coverage
+
+# mypy
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store

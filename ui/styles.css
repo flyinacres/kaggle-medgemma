@@ -1,0 +1,84 @@
+/* --- General App Styling --- */
+.gradio-container {
+  background-color: #f7f7f7; /* A slightly off-white background */
+}
+
+/* --- Text Input Styling --- */
+#main_textbox_id,
+#summary_output_textbox {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px !important;
+}
+
+/* Apply to all primary buttons */
+button[variant="primary"],
+.primary,
+button.primary {
+  background-image: linear-gradient(
+    to right,
+    #4a90e2 0%,
+    #0072c6 100%
+  ) !important;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+button[variant="primary"]:hover,
+.primary:hover,
+button.primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Remove border, padding, and margin from the main container AND all divs inside it */
+#hero_image,
+#hero_image > div {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* This rule worked, so we keep it to hide the tool buttons */
+#hero_image .icon-button-wrapper {
+  display: none !important;
+}
+
+#animation_output_id textarea {
+  font-family: "Courier New", Courier, monospace !important;
+  text-align: center !important;
+}
+
+/* Force background */
+body .gradio-container {
+  background-color: black !important;
+}
+
+/* Try more specific label targeting */
+[data-testid="block-label"],
+[data-testid="block-info"] {
+  color: turquoise !important;
+  font-size: 18px !important;
+}
+
+/* Match label container backgrounds */
+[data-testid="block-label"] {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Target tabs by their role attribute */
+button[role="tab"] {
+  font-size: 16px !important;
+  padding: 12px 20px !important;
+}
+
+#hidden_text { display: none !important; }
+
+#scroll_container {
+    height: 400px; /* Adjust this to match your original 15 lines */
+    overflow-y: auto;
+    border: 1px solid #ddd; /* Optional: gives it back that 'textbox' border */
+    padding: 10px;
+    border-radius: 8px;
+}
