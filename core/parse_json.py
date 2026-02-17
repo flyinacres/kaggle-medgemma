@@ -1,3 +1,5 @@
+# core/parse_json.py
+
 import json5
 import re
 import html

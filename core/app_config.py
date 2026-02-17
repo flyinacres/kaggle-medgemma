@@ -1,3 +1,4 @@
+# core/app_config.py
 """
 Handles application-wide configuration: environment detection, secrets, and hardware profiles.
 This module is the single source of truth for the runtime environment.
@@ -11,6 +12,7 @@ from typing import Dict, Any
 
 # --- Environment Detection & Constants ---
 IS_KAGGLE_ENV: bool = "KAGGLE_KERNEL_RUN_TYPE" in os.environ
+# !!! May need to edit these paths on Kaggle to point to your prompts
 BASE_DIR: Path = Path("/kaggle/input/medgemma-laurie-prompts") if IS_KAGGLE_ENV else Path(__file__).parent.parent.resolve()
 PROMPT_FILE_PATH: Path = BASE_DIR / "prompts" / "json_prompt.txt"
 CONVERSATIONAL_PROMPT_FILE_PATH: Path = BASE_DIR / "prompts" / "conversational_prompt.txt"
