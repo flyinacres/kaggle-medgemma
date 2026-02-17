@@ -1,10 +1,8 @@
 # requirements.txt
 
-# !!!!!
-# For PyTorch with CUDA 12.1 (Windows 11 1080Ti, for example) support. 
+# For PyTorch with CUDA 12.1 support. 
 # Need to do this first, separately, unfortunately
-# pip install torch==2.9.1+cu126 torchvision==0.24.1+cu126 torchaudio==2.9.1+cu126 --index-url https://download.pytorch.org/whl/cu126
-# !!!!!
+# pip install torch torchvision torchaudio --index-url --index-url https://download.pytorch.org/whl/cu126
 
 # On the mac could not get ASR running without
 # export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH" in the .zshrc
@@ -20,6 +18,7 @@ tokenizers
 
 # For audio file processing by the ASR pipeline
 soundfile
+torchaudio
 
 # Development version of transformers is required for some custom models
 # This version seems to work for the LLM and the ASR

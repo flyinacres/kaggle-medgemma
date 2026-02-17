@@ -1,5 +1,6 @@
 import json5
 import re
+import sys
 import html
 from typing import Dict, List, Any, Optional
 
@@ -94,7 +95,7 @@ def format_medical_info(json_data: Dict[str, Any]) -> str:
     
     # 1. Header & Disclaimer
     output_parts.append("<h2>Medical Summary</h2>")
-    output_parts.append("<blockquote><b>⚠️ DISCLAIMER:</b> This is not medical advice. Please consult your medical professional.</blockquote>")
+    output_parts.append("<blockquote><b>⚠️ DISCLAIMER:</b> Not medical advice. Consult a professional.</blockquote>")
 
     # 2. Key Takeaways (Bullet List)
     takeaways = safe_get_list(json_data, 'key_takeaways')

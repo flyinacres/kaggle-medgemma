@@ -19,7 +19,7 @@ CONVERSATIONAL_PROMPT_FILE_PATH: Path = BASE_DIR / "prompts" / "conversational_p
 if IS_KAGGLE_ENV:
     print("✅ Running in Kaggle environment.")
     try:
-        from kaggle_secrets import UserSecretsClient # type: ignore
+        from kaggle_secrets import UserSecretsClient
         user_secrets = UserSecretsClient()
         os.environ["HUGGING_FACE_HUB_TOKEN"] = user_secrets.get_secret("HUGGING_FACE_HUB_TOKEN")
         print("✅ Kaggle secret 'HUGGING_FACE_HUB_TOKEN' loaded into environment.")
@@ -48,8 +48,10 @@ INFRA_CONFIGS: Dict[str, Dict[str, Any]] = {
             "device_map": "auto"
         },
         "llm_gen_args": {
-            "max_new_tokens": 1536,
-            "do_sample": False
+            "max_new_tokens": 512,
+            "do_sample": False,
+            "temperature": 0.6,
+            "top_p": 0.9
         },
         "asr_init_args": {
             "quantization_config": BitsAndBytesConfig(load_in_4bit=True),
@@ -81,7 +83,7 @@ INFRA_CONFIGS: Dict[str, Dict[str, Any]] = {
         },
         "llm_gen_args": {
             "max_new_tokens": 3096,
-            "do_sample": True,
+            "do_sample": False,
             "temperature": 0.3,
             "top_p": 0.9
         },

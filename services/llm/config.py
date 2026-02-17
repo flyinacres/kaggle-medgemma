@@ -36,3 +36,20 @@ active_model_config: Dict[str, Any] = MODEL_CONFIGS.get(MODEL_MODE, MODEL_CONFIG
 print(f"✅ LLM Service Mode: '{MODEL_MODE}' using model '{active_model_config['model_id']}'")
 
 
+# --- Pipeline & Generation Arguments ---
+GENERATION_KEYS: set = {"max_new_tokens", "do_sample", "temperature", "top_p"}
+
+
+llm_model_init_kwargs: Dict[str, Any] = {}
+if active_infra_config.get("llm_quantization_config"):
+    llm_model_init_kwargs["quantization_config"] = active_infra_config["llm_quantization_config"]
+
+generation_kwargs: Dict[str, Any] = {
+    key: active_infra_config[key] for key in GENERATION_KEYS if key in active_infra_config
+}
+# For image-to-text, we want the full generated text, not just the completion.
+# For text-generation with chat format, this should be False. We handle this in the engine.
+if MODEL_MODE == "VLM":
+    generation_kwargs['return_full_text'] = True
+else:
+    generation_kwargs['return_full_text'] = False
